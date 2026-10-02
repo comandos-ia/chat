@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#070b14"/>
+    </linearGradient>
+
+    <!-- Card Gradient Dark -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <linearGradient id="bluePurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <linearGradient id="emeraldCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 34px; font-weight: 800; fill: #ffffff; letter-spacing: -0.5px; }
+    .subtitle { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 500; fill: #94a3b8; }
+    .badge { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+    .step-num { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px; fill: #38bdf8; }
+    .step-title { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 17px; font-weight: 700; fill: #f8fafc; }
+    .step-desc { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 400; fill: #94a3b8; }
+    .metric-val { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 800; fill: #f8fafc; }
+    .metric-lbl { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 500; fill: #64748b; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Tech Grid Lines -->
+  <g opacity="0.07" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="180" x2="1600" y2="180"/>
+    <line x1="0" y1="360" x2="1600" y2="360"/>
+    <line x1="0" y1="540" x2="1600" y2="540"/>
+    <line x1="0" y1="720" x2="1600" y2="720"/>
+    <line x1="266" y1="0" x2="266" y2="900"/>
+    <line x1="533" y1="0" x2="533" y2="900"/>
+    <line x1="800" y1="0" x2="800" y2="900"/>
+    <line x1="1066" y1="0" x2="1066" y2="900"/>
+    <line x1="1333" y1="0" x2="1333" y2="900"/>
+  </g>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="150" height="26" rx="6" fill="#0369a1" fill-opacity="0.3"/>
+    <text x="12" y="17" class="badge" fill="#38bdf8">MAPA DE PROCESSO</text>
+    <text x="0" y="65" class="title">Liberação de Veículos · Do Pedido à Saída do CD</text>
+    <text x="0" y="95" class="subtitle">Mapeamento de etapas críticas, tempos médios, validações de segurança e fluxo de transição</text>
+
+    <!-- Top Right KPIs -->
+    <g transform="translate(1080, 10)">
+      <rect x="0" y="0" width="160" height="64" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="16" y="24" class="metric-lbl">TEMPO TOTAL MÉDIO</text>
+      <text x="16" y="50" class="metric-val" fill="#38bdf8">42 min</text>
+
+      <rect x="180" y="0" width="180" height="64" rx="12" fill="#1e293b" stroke="#059669" stroke-width="1.5"/>
+      <text x="196" y="24" class="metric-lbl">TAXA DE SUCESSO</text>
+      <text x="196" y="50" class="metric-val" fill="#34d399">98.4%</text>
+    </g>
+  </g>
+
+  <!-- Flow Connector Line with Gradient Glow -->
+  <g transform="translate(80, 420)">
+    <line x1="120" y1="0" x2="1320" y2="0" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+    <line x1="120" y1="0" x2="1320" y2="0" stroke="url(#cyanBlue)" stroke-width="3" stroke-linecap="round" filter="url(#glowCyan)" opacity="0.8"/>
+  </g>
+
+  <!-- ================= STAGE 1: PEDIDO & ENTRADA ================= -->
+  <g transform="translate(80, 260)">
+    <!-- Stage Card -->
+    <rect x="0" y="0" width="260" height="320" rx="18" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6"/>
+    <!-- Stage Number Tag -->
+    <rect x="20" y="20" width="70" height="24" rx="6" fill="#0284c7" fill-opacity="0.25"/>
+    <text x="32" y="36" class="step-num">ETAPA 01</text>
+    <circle cx="230" cy="32" r="6" fill="#38bdf8"/>
+    <!-- Icon / Visual -->
+    <g transform="translate(20, 65)">
+      <rect width="44" height="44" rx="10" fill="#0f172a" stroke="#334155"/>
+      <path d="M14 16h16M14 22h12M14 28h8" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <text x="20" y="145" class="step-title">Pedido Criado</text>
+    <text x="20" y="172" class="step-desc">Ordem de carga emitida</text>
+    <text x="20" y="192" class="step-desc">e dados sincronizados no</text>
+    <text x="20" y="212" class="step-desc">TMS / ERP da operação.</text>
+
+    <!-- Card Footer / Metric -->
+    <rect x="16" y="248" width="228" height="52" rx="10" fill="#0b1120" stroke="#1e293b"/>
+    <text x="30" y="268" class="metric-lbl">RESPONSÁVEL</text>
+    <text x="30" y="288" class="metric-val" font-size="14" fill="#cbd5e1">Torre de Controle</text>
+    <text x="180" y="280" font-family="sans-serif" font-size="12" font-weight="700" fill="#38bdf8">T0</text>
+  </g>
+
+  <!-- Connector Node 1 -> 2 -->
+  <circle cx="360" cy="420" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+  <circle cx="360" cy="420" r="4" fill="#38bdf8"/>
+
+  <!-- ================= STAGE 2: TRIAGEM & ANÁLISE ================= -->
+  <g transform="translate(370, 260)">
+    <rect x="0" y="0" width="260" height="320" rx="18" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="20" width="70" height="24" rx="6" fill="#2563eb" fill-opacity="0.25"/>
+    <text x="32" y="36" class="step-num" fill="#60a5fa">ETAPA 02</text>
+    <circle cx="230" cy="32" r="6" fill="#60a5fa"/>
+    <g transform="translate(20, 65)">
+      <rect width="44" height="44" rx="10" fill="#0f172a" stroke="#334155"/>
+      <circle cx="22" cy="22" r="9" stroke="#60a5fa" stroke-width="2.5" fill="none"/>
+      <path d="M28 28l6 6" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <text x="20" y="145" class="step-title">Análise de Risco</text>
+    <text x="20" y="172" class="step-desc">Checagem de motorista,</text>
+    <text x="20" y="192" class="step-desc">veículo, rastreador e</text>
+    <text x="20" y="212" class="step-desc">vínculo com o PGR ativo.</text>
+
+    <rect x="16" y="248" width="228" height="52" rx="10" fill="#0b1120" stroke="#1e293b"/>
+    <text x="30" y="268" class="metric-lbl">TEMPO MÉDIO</text>
+    <text x="30" y="288" class="metric-val" font-size="14" fill="#cbd5e1">12 min</text>
+    <text x="180" y="280" font-family="sans-serif" font-size="12" font-weight="700" fill="#60a5fa">Auto</text>
+  </g>
+
+  <!-- Connector Node 2 -> 3 -->
+  <circle cx="650" cy="420" r="10" fill="#0f172a" stroke="#60a5fa" stroke-width="3"/>
+  <circle cx="650" cy="420" r="4" fill="#60a5fa"/>
+
+  <!-- ================= STAGE 3: INSPEÇÃO & PÁTIO ================= -->
+  <g transform="translate(660, 260)">
+    <rect x="0" y="0" width="260" height="320" rx="18" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="20" width="70" height="24" rx="6" fill="#7c3aed" fill-opacity="0.25"/>
+    <text x="32" y="36" class="step-num" fill="#a78bfa">ETAPA 03</text>
+    <circle cx="230" cy="32" r="6" fill="#a78bfa"/>
+    <g transform="translate(20, 65)">
+      <rect width="44" height="44" rx="10" fill="#0f172a" stroke="#334155"/>
+      <path d="M14 18l5 5 11-11" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="20" y="145" class="step-title">Check-list de Pátio</text>
+    <text x="20" y="172" class="step-desc">Inspeção física, lacres,</text>
+    <text x="20" y="192" class="step-desc">temperatura e testes de</text>
+    <text x="20" y="212" class="step-desc">comunicação dos sensores.</text>
+
+    <rect x="16" y="248" width="228" height="52" rx="10" fill="#0b1120" stroke="#1e293b"/>
+    <text x="30" y="268" class="metric-lbl">RESPONSÁVEL</text>
+    <text x="30" y="288" class="metric-val" font-size="14" fill="#cbd5e1">Fiscal de Pátio</text>
+    <text x="180" y="280" font-family="sans-serif" font-size="12" font-weight="700" fill="#a78bfa">15m</text>
+  </g>
+
+  <!-- Connector Node 3 -> 4 -->
+  <circle cx="940" cy="420" r="10" fill="#0f172a" stroke="#a78bfa" stroke-width="3"/>
+  <circle cx="940" cy="420" r="4" fill="#a78bfa"/>
+
+  <!-- ================= STAGE 4: LIBERAÇÃO & SM ================= -->
+  <g transform="translate(950, 260)">
+    <rect x="0" y="0" width="260" height="320" rx="18" fill="url(#cardGrad)" stroke="#10b981" stroke-width="2" stroke-opacity="0.8"/>
+    <rect x="20" y="20" width="70" height="24" rx="6" fill="#059669" fill-opacity="0.3"/>
+    <text x="32" y="36" class="step-num" fill="#34d399">ETAPA 04</text>
+    <circle cx="230" cy="32" r="6" fill="#34d399" filter="url(#glowGreen)"/>
+    <g transform="translate(20, 65)">
+      <rect width="44" height="44" rx="10" fill="#064e3b" stroke="#059669"/>
+      <path d="M15 22l5 5 10-10" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="20" y="145" class="step-title">Aprovação &amp; SM</text>
+    <text x="20" y="172" class="step-desc">Geração da Solicitação de</text>
+    <text x="20" y="192" class="step-desc">Monitoramento (SM) e sinal</text>
+    <text x="20" y="212" class="step-desc">verde operacional.</text>
+
+    <rect x="16" y="248" width="228" height="52" rx="10" fill="#064e3b" fill-opacity="0.4" stroke="#059669"/>
+    <text x="30" y="268" class="metric-lbl" fill="#6ee7b7">STATUS</text>
+    <text x="30" y="288" class="metric-val" font-size="14" fill="#34d399">Liberado no Sistema</text>
+    <text x="180" y="280" font-family="sans-serif" font-size="12" font-weight="700" fill="#34d399">OK</text>
+  </g>
+
+  <!-- Connector Node 4 -> 5 -->
+  <circle cx="1230" cy="420" r="10" fill="#0f172a" stroke="#10b981" stroke-width="3"/>
+  <circle cx="1230" cy="420" r="4" fill="#34d399"/>
+
+  <!-- ================= STAGE 5: SAÍDA DO CD ================= -->
+  <g transform="translate(1240, 260)">
+    <rect x="0" y="0" width="260" height="320" rx="18" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="20" width="70" height="24" rx="6" fill="#0284c7" fill-opacity="0.25"/>
+    <text x="32" y="36" class="step-num">ETAPA 05</text>
+    <circle cx="230" cy="32" r="6" fill="#38bdf8"/>
+    <g transform="translate(20, 65)">
+      <rect width="44" height="44" rx="10" fill="#0f172a" stroke="#334155"/>
+      <!-- Truck Icon -->
+      <path d="M10 28V16h16v12M26 21h6l4 4v3h-10M14 28a3 3 0 1 1-6 0M32 28a3 3 0 1 1-6 0" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+    <text x="20" y="145" class="step-title">Saída do CD</text>
+    <text x="20" y="172" class="step-desc">Emissão de CT-e/MDF-e,</text>
+    <text x="20" y="192" class="step-desc">liberação de portaria e</text>
+    <text x="20" y="212" class="step-desc">início do rastreamento.</text>
+
+    <rect x="16" y="248" width="228" height="52" rx="10" fill="#0b1120" stroke="#1e293b"/>
+    <text x="30" y="268" class="metric-lbl">GATE SAÍDA</text>
+    <text x="30" y="288" class="metric-val" font-size="14" fill="#cbd5e1">Viagem Iniciada</text>
+    <text x="180" y="280" font-family="sans-serif" font-size="12" font-weight="700" fill="#38bdf8">FIM</text>
+  </g>
+
+  <!-- Bottom Timeline / Sub-lanes -->
+  <g transform="translate(80, 630)">
+    <rect x="0" y="0" width="1440" height="180" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="28" y="36" class="badge" fill="#64748b">REGRAS DE ESCALONAMENTO E PONTOS DE CONTROLE</text>
+
+    <!-- Grid items below -->
+    <g transform="translate(28, 55)">
+      <!-- Rule 1 -->
+      <g transform="translate(0, 0)">
+        <circle cx="8" cy="18" r="4" fill="#ef4444"/>
+        <text x="22" y="22" font-family="sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">Alerta de Divergência:</text>
+        <text x="22" y="44" font-family="sans-serif" font-size="13" fill="#94a3b8">Se o motorista não constar no PGR, escala imediatamente para Gerenciamento de Risco (SLA: 10 min).</text>
+      </g>
+      <!-- Rule 2 -->
+      <g transform="translate(480, 0)">
+        <circle cx="8" cy="18" r="4" fill="#f59e0b"/>
+        <text x="22" y="22" font-family="sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">Falha de Sensor / Isca:</text>
+        <text x="22" y="44" font-family="sans-serif" font-size="13" fill="#94a3b8">Sem sinal de telemetria em 5 min aciona equipe técnica de pátio antes de carregar baú.</text>
+      </g>
+      <!-- Rule 3 -->
+      <g transform="translate(960, 0)">
+        <circle cx="8" cy="18" r="4" fill="#10b981"/>
+        <text x="22" y="22" font-family="sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">Notificação Automática:</text>
+        <text x="22" y="44" font-family="sans-serif" font-size="13" fill="#94a3b8">Embarcador e cliente recebem o link do tracking com estimativa de entrega (ETA).</text>
+      </g>
+    </g>
+  </g>
+</svg>
