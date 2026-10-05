@@ -20,7 +20,12 @@ main{max-width:1180px;margin:0 auto;padding:24px 22px 60px}.toolbar{display:grid
 .lightbox-card{background:#ffffff;border:1px solid var(--line);border-radius:20px;box-shadow:0 30px 80px -15px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr 380px;overflow:hidden;height:86vh;max-height:860px;animation:lightboxIn .22s cubic-bezier(.16,1,.3,1)}
 @keyframes lightboxIn{from{opacity:0;transform:scale(.97) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
 .lightbox-stage{background:#070b14;display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden;position:relative}
-.lightbox-stage img{max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:10px;box-shadow:0 12px 35px rgba(0,0,0,.6);user-select:none}
+.lightbox-stage img{max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:10px;box-shadow:0 12px 35px rgba(0,0,0,.6);user-select:none;transition:opacity .15s ease}
+.lightbox-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(15,23,42,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all .18s ease;box-shadow:0 4px 15px rgba(0,0,0,.4)}
+.lightbox-nav-btn:hover{background:rgba(30,41,59,.95);border-color:rgba(255,255,255,.4);transform:translateY(-50%) scale(1.08);color:#60a5fa}
+.lightbox-nav-prev{left:16px}
+.lightbox-nav-next{right:16px}
+.lightbox-counter{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);color:#cbd5e1;padding:4px 12px;border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:.05em;user-select:none;z-index:10}
 .lightbox-sidebar{background:#ffffff;border-left:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
 .lightbox-sidebar-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);background:#fafbff;gap:10px}
 .lightbox-category-chip{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -34,7 +39,7 @@ main{max-width:1180px;margin:0 auto;padding:24px 22px 60px}.toolbar{display:grid
 .lightbox-sidebar-content .purpose{margin:4px 0 0;color:#4c5870;font-size:13.5px;line-height:1.55}
 .lightbox-sidebar-content .example-box{background:#f7f8fc;border:1px solid #e9edf5;border-radius:10px;padding:13px}
 .lightbox-sidebar-content .example{margin:4px 0 0;color:#4c5870;font-size:13.5px;line-height:1.55}
-@media(max-width:960px){.lightbox-card{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:auto;max-height:92vh}.lightbox-stage{min-height:260px;max-height:50vh;padding:14px}.lightbox-stage img{max-height:46vh}.lightbox-sidebar{border-left:none;border-top:1px solid var(--line)}.lightbox-sidebar-content{padding:18px 16px;gap:14px}}
+@media(max-width:960px){.lightbox-card{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:auto;max-height:92vh}.lightbox-stage{min-height:260px;max-height:50vh;padding:14px}.lightbox-stage img{max-height:46vh}.lightbox-nav-btn{width:36px;height:36px}.lightbox-nav-prev{left:8px}.lightbox-nav-next{right:8px}.lightbox-sidebar{border-left:none;border-top:1px solid var(--line)}.lightbox-sidebar-content{padding:18px 16px;gap:14px}}
 @media(max-width:600px){header{padding:34px 18px 28px}main{padding:16px 14px 42px}.grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr;position:static}.section-head{align-items:flex-start;flex-direction:column}.image-slot{min-height:130px}.lightbox-dialog{padding:8px;max-width:100vw}.lightbox-stage{padding:10px;min-height:190px}.lightbox-stage img{max-height:36vh}}
 @media print{header{background:#101826!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar,.category-nav,.image-actions,.btn,.lightbox-dialog{display:none!important}body{background:white}.grid{grid-template-columns:repeat(2,1fr)}.card{break-inside:avoid;box-shadow:none}.section{break-inside:auto}.image-slot{min-height:100px}}
 </style>
@@ -61,7 +66,14 @@ main{max-width:1180px;margin:0 auto;padding:24px 22px 60px}.toolbar{display:grid
 <dialog id="lightboxModal" class="lightbox-dialog" aria-label="Visualização detalhada do comando">
   <div class="lightbox-card">
     <div class="lightbox-stage">
+      <button id="lightboxPrev" class="lightbox-nav-btn lightbox-nav-prev" type="button" aria-label="Comando anterior" title="Anterior (Seta Esquerda)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <img id="lightboxImg" src="" alt="Visualização ampliada do resultado">
+      <button id="lightboxNext" class="lightbox-nav-btn lightbox-nav-next" type="button" aria-label="Próximo comando" title="Próximo (Seta Direita)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
     </div>
     <aside class="lightbox-sidebar">
       <div class="lightbox-sidebar-head">
@@ -121,8 +133,8 @@ const data = [
   {"category": "Planejamento estratégico e execução", "categoryDesc": "Transformar objetivos em iniciativas, responsáveis e prazos", "command": "/okrreview", "name": "Revisão de OKRs", "purpose": "Revisa objetivos e resultados-chave, progresso, obstáculos e ajustes.", "example": "Revise os OKRs do trimestre e destaque os resultados em risco.", "image": "imagens/revisao_okr.jpg"},
   {"category": "Planejamento estratégico e execução", "categoryDesc": "Transformar objetivos em iniciativas, responsáveis e prazos", "command": "/timeline", "name": "Linha do tempo", "purpose": "Organiza atividades, marcos, datas e sequência de execução.", "example": "Monte a linha do tempo para implantar um novo fluxo operacional.", "image": "imagens/linha_tempo.jpg"},
   {"category": "Planejamento estratégico e execução", "categoryDesc": "Transformar objetivos em iniciativas, responsáveis e prazos", "command": "/decisionbacklog", "name": "Backlog de decisões", "purpose": "Registra decisões pendentes, contexto, responsável, prazo e impacto do atraso.", "example": "Organize as decisões pendentes que bloqueiam o projeto.", "image": "imagens/backlog_decisoes.jpg"},
-  {"category": "Planejamento estratégico e execução", "categoryDesc": "Transformar objetivos em iniciativas, responsáveis e prazos", "command": "/benefitrealization", "name": "Realização de benefícios", "purpose": "Verifica se os benefícios prometidos por um projeto foram alcançados.", "example": "Compare os ganhos esperados e os ganhos realizados após a automação.", "image": ""},
-  {"category": "Decisão e priorização", "categoryDesc": "Comparar alternativas e escolher critérios", "command": "/decisiontree", "name": "Árvore de decisão", "purpose": "Representa caminhos possíveis, condições e consequências de cada escolha.", "example": "Desenhe as regras para decidir quando escalar uma ocorrência.", "image": ""},
+  {"category": "Planejamento estratégico e execução", "categoryDesc": "Transformar objetivos em iniciativas, responsáveis e prazos", "command": "/benefitrealization", "name": "Realização de benefícios", "purpose": "Verifica se os benefícios prometidos por um projeto foram alcançados.", "example": "Compare os ganhos esperados e os ganhos realizados após a automação.", "image": "imagens/realizacao_beneficios.jpg"},
+  {"category": "Decisão e priorização", "categoryDesc": "Comparar alternativas e escolher critérios", "command": "/decisiontree", "name": "Árvore de decisão", "purpose": "Representa caminhos possíveis, condições e consequências de cada escolha.", "example": "Desenhe as regras para decidir quando escalar uma ocorrência.", "image": "imagens/arvore_decisao.jpg"},
   {"category": "Decisão e priorização", "categoryDesc": "Comparar alternativas e escolher critérios", "command": "/prioritymatrix", "name": "Matriz de prioridades", "purpose": "Organiza tarefas por critérios como impacto, urgência, esforço ou risco.", "example": "Priorize as iniciativas de melhoria por impacto e esforço.", "image": ""},
   {"category": "Decisão e priorização", "categoryDesc": "Comparar alternativas e escolher critérios", "command": "/matrix", "name": "Matriz de análise", "purpose": "Cruza opções e critérios para facilitar uma comparação estruturada.", "example": "Compare fornecedores por custo, prazo, cobertura e integração.", "image": ""},
   {"category": "Decisão e priorização", "categoryDesc": "Comparar alternativas e escolher critérios", "command": "/comparison", "name": "Comparação de alternativas", "purpose": "Compara opções usando critérios comuns, vantagens, limitações e impactos.", "example": "Compare dois modelos de operação logística.", "image": ""},
@@ -166,11 +178,15 @@ const lightboxExternal = document.getElementById('lightboxExternal');
 const lightboxClose = document.getElementById('lightboxClose');
 const lightboxCopyBtn = document.getElementById('lightboxCopyBtn');
 const lightboxCopyStatus = document.getElementById('lightboxCopyStatus');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+const lightboxCounter = document.getElementById('lightboxCounter');
 
 let currentLightboxItem = null;
+let activeLightboxList = [];
+let currentLightboxIndex = 0;
 
-function openLightbox(item){
-  if(!item.image) return;
+function updateLightboxContent(item){
   currentLightboxItem = item;
   lightboxImg.src = item.image;
   lightboxImg.alt = `Exemplo de ${item.name} (${item.command})`;
@@ -181,6 +197,34 @@ function openLightbox(item){
   lightboxExample.textContent = item.example;
   lightboxExternal.href = item.image;
   lightboxCopyStatus.textContent = '';
+  if(activeLightboxList.length > 1){
+    lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${activeLightboxList.length}`;
+  }
+}
+
+function navigateLightbox(direction){
+  if(!activeLightboxList || !activeLightboxList.length) return;
+  currentLightboxIndex = (currentLightboxIndex + direction + activeLightboxList.length) % activeLightboxList.length;
+  updateLightboxContent(activeLightboxList[currentLightboxIndex]);
+}
+
+function openLightbox(item){
+  if(!item.image) return;
+  const q = search.value.trim().toLowerCase(), selected = categorySelect.value;
+  const currentFiltered = data.filter(x => (!selected || x.category === selected) && (!q || [x.command, x.name, x.purpose, x.example, x.category].join(' ').toLowerCase().includes(q)));
+  activeLightboxList = currentFiltered.filter(x => x.image);
+  if(!activeLightboxList.length) activeLightboxList = data.filter(x => x.image);
+  
+  currentLightboxIndex = activeLightboxList.findIndex(x => x.command === item.command);
+  if(currentLightboxIndex === -1) currentLightboxIndex = 0;
+  
+  updateLightboxContent(activeLightboxList[currentLightboxIndex]);
+
+  const hasMultiple = activeLightboxList.length > 1;
+  lightboxPrev.style.display = hasMultiple ? 'flex' : 'none';
+  lightboxNext.style.display = hasMultiple ? 'flex' : 'none';
+  lightboxCounter.style.display = hasMultiple ? 'block' : 'none';
+
   if(typeof lightboxModal.showModal === 'function'){
     lightboxModal.showModal();
   }else{
@@ -195,6 +239,27 @@ function closeLightbox(){
     lightboxModal.removeAttribute('open');
   }
 }
+
+lightboxPrev.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  navigateLightbox(-1);
+});
+
+lightboxNext.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  navigateLightbox(1);
+});
+
+window.addEventListener('keydown', (e)=>{
+  if(!lightboxModal.open) return;
+  if(e.key === 'ArrowLeft'){
+    e.preventDefault();
+    navigateLightbox(-1);
+  }else if(e.key === 'ArrowRight'){
+    e.preventDefault();
+    navigateLightbox(1);
+  }
+});
 
 lightboxCopyBtn.addEventListener('click', async()=>{
   if(!currentLightboxItem) return;
