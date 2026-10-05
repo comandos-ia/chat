@@ -3,13 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Biblioteca de Comandos de Gestão</title>
+<title>Biblioteca de Comandos de Gestão | Comandos IA</title>
+<meta name="description" content="Biblioteca prática de comandos de IA para líderes e gestores. Modelos prontos para análise, tomada de decisão, gestão de pessoas e execução estratégica.">
+<meta name="theme-color" content="#101826">
+
+<!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Biblioteca de Comandos de Gestão">
+<meta property="og:title" content="Biblioteca de Comandos de Gestão | Comandos IA">
+<meta property="og:description" content="Comandos práticos de IA para pensar, decidir e executar melhor. Exemplos reais, fluxos de decisão e modelos para liderança.">
+<meta property="og:image" content="imagens/og-preview.jpg">
+<meta property="og:image:secure_url" content="imagens/og-preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Biblioteca de Comandos de Gestão com IA">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Biblioteca de Comandos de Gestão | Comandos IA">
+<meta name="twitter:description" content="Comandos práticos de IA para pensar, decidir e executar melhor. Exemplos reais, fluxos de decisão e modelos para liderança.">
+<meta name="twitter:image" content="imagens/og-preview.jpg">
+<link rel="image_src" href="imagens/og-preview.jpg">
 <style>
 :root{--bg:#f4f6fa;--surface:#fff;--ink:#172033;--muted:#65718a;--line:#e2e7f0;--navy:#101826;--blue:#315be8;--cyan:#4fd1e8;--purple:#7454d6;--soft:#eef2ff;--shadow:0 8px 30px rgba(21,32,57,.06)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 header{background:linear-gradient(120deg,#101826,#202d4b 70%,#30346a);color:#fff;padding:46px 22px 36px}
 .wrap{max-width:1180px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;color:var(--cyan)}h1{font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-.04em;margin:12px 0;max-width:760px}header p{max-width:700px;color:#d4dbea;margin:0;font-size:16px}.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.stat{border:1px solid #ffffff24;background:#ffffff0d;border-radius:12px;padding:10px 14px;min-width:130px}.stat strong{display:block;font-size:21px}.stat span{font-size:12px;color:#c8d1e4}
-main{max-width:1180px;margin:0 auto;padding:24px 22px 60px}.toolbar{display:grid;grid-template-columns:minmax(220px,1fr) 250px auto;gap:12px;position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0 16px}.field{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font:inherit;outline:none}.field:focus{border-color:var(--blue);box-shadow:0 0 0 3px #315be81c}.btn{border:0;border-radius:10px;padding:11px 15px;font:600 13px inherit;cursor:pointer;transition:.18s}.btn-primary{background:var(--blue);color:white}.btn-primary:hover{background:#2449cb}.btn-quiet{background:#edf0f7;color:#25304a}.btn:focus-visible{outline:3px solid #4fd1e8;outline-offset:2px}
+main{max-width:1180px;margin:0 auto;padding:24px 22px 60px}.toolbar{display:grid;grid-template-columns:minmax(200px,1fr) 220px auto auto;gap:12px;position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0 16px}.field{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font:inherit;outline:none}.field:focus{border-color:var(--blue);box-shadow:0 0 0 3px #315be81c}.btn{border:0;border-radius:10px;padding:11px 15px;font:600 13px inherit;cursor:pointer;transition:.18s}.btn-primary{background:var(--blue);color:white}.btn-primary:hover{background:#2449cb}.btn-quiet{background:#edf0f7;color:#25304a}.btn-whatsapp{background:#128c7e;color:white;display:inline-flex;align-items:center;justify-content:center;gap:6px}.btn-whatsapp:hover{background:#075e54}.btn:focus-visible{outline:3px solid #4fd1e8;outline-offset:2px}
 .category-nav{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 26px}.chip{border:1px solid var(--line);background:#fff;color:#4b5872;border-radius:999px;padding:8px 12px;font-size:12px;cursor:pointer}.chip.active,.chip:hover{background:var(--navy);color:white;border-color:var(--navy)}
 .section{margin:30px 0 38px;scroll-margin-top:100px}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:15px}.section-head h2{font-size:23px;letter-spacing:-.025em;margin:0}.section-head p{color:var(--muted);margin:4px 0 0}.count{font-size:12px;color:var(--muted);white-space:nowrap}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0}.card-body{padding:17px 17px 14px;display:flex;flex-direction:column;gap:12px;flex:1}.cmdline{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.command{font:700 14px/1.35 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#2e45a0;overflow-wrap:anywhere}.card h3{font-size:16px;line-height:1.25;margin:0;letter-spacing:-.01em}.label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#78839a;font-weight:800}.purpose,.example{margin:0;color:#4c5870;font-size:13px}.example-box{background:#f7f8fc;border:1px solid #e9edf5;border-radius:10px;padding:11px}.image-slot{margin:0 17px 17px;border:1.5px dashed #c7cede;border-radius:12px;background:linear-gradient(135deg,#fafbff,#f1f4fa);min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;position:relative;overflow:hidden;transition:all .2s ease}.image-slot img{width:100%;height:100%;max-height:220px;object-fit:contain;display:none}.image-slot.has-image{padding:0;border:1px solid #1e293b;background:#0b1120;cursor:zoom-in}.image-slot.has-image img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in;transition:transform .2s ease}.image-slot.has-image img:hover{transform:scale(1.02)}.image-slot.has-image::after{content:'🔍 Clique para ampliar';position:absolute;bottom:8px;right:8px;background:rgba(15,23,42,.82);backdrop-filter:blur(4px);color:#fff;font-size:11px;font-weight:600;padding:4px 9px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;transform:translateY(4px)}.image-slot.has-image:hover::after{opacity:1;transform:translateY(0)}.image-slot.has-image .placeholder{display:none}.placeholder{max-width:230px;color:#7c879e;font-size:12px}.placeholder .icon{font-size:25px;display:block;color:#8b9ac2;margin-bottom:6px}.small-btn{font-size:11px;padding:8px 10px;border-radius:8px}.copy-status{font-size:11px;color:#15803d;align-self:center;min-height:16px}.empty{padding:38px;text-align:center;background:#fff;border:1px dashed var(--line);border-radius:14px;color:var(--muted);display:none}.note{margin-top:30px;padding:15px 17px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:12px;color:var(--muted)}footer{text-align:center;color:#8b94a7;font-size:12px;padding:25px}
@@ -54,7 +76,11 @@ main{max-width:1180px;margin:0 auto;padding:24px 22px 60px}.toolbar{display:grid
 <div class="toolbar">
 <input id="search" class="field" type="search" placeholder="Pesquisar comando, finalidade ou exemplo…" aria-label="Pesquisar comandos">
 <select id="categorySelect" class="field" aria-label="Filtrar por categoria"><option value="">Todas as categorias</option></select>
-<button id="printBtn" class="btn btn-quiet" type="button">Imprimir / salvar PDF</button>
+<button id="shareBtn" class="btn btn-whatsapp" type="button" title="Compartilhar pelo WhatsApp">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  WhatsApp
+</button>
+<button id="printBtn" class="btn btn-quiet" type="button">Imprimir / PDF</button>
 </div>
 <nav id="categoryNav" class="category-nav" aria-label="Categorias"></nav>
 <div id="catalog"></div>
@@ -333,6 +359,22 @@ function render(){
 }
 search.addEventListener('input',render);categorySelect.addEventListener('change',render);
 document.getElementById('printBtn').addEventListener('click',()=>window.print());
+const shareBtn=document.getElementById('shareBtn');
+if(shareBtn){
+  shareBtn.addEventListener('click',async()=>{
+    const shareTitle='Biblioteca de Comandos de Gestão | Comandos IA';
+    const shareText='💡 Confira a Biblioteca de Comandos de Gestão com IA: modelos práticos para pensar, decidir e liderar melhor.';
+    const shareUrl=window.location.href;
+    if(navigator.share){
+      try{
+        await navigator.share({title:shareTitle,text:shareText,url:shareUrl});
+      }catch(e){}
+    }else{
+      const waUrl='https://api.whatsapp.com/send?text='+encodeURIComponent(shareText+'\n\n'+shareUrl);
+      window.open(waUrl,'_blank');
+    }
+  });
+}
 render();
 </script>
 </body></html>
