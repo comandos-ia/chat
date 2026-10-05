@@ -1,26 +1,21 @@
 # Biblioteca de Comandos de Gestão (Comandos IA)
 
-Catálogo prático de atalhos e comandos de IA para líderes e gestores pensarem, decidirem e executarem melhor.
+Catálogo prático de 52 atalhos e comandos de IA para líderes e gestores pensarem, decidirem e executarem melhor.
 
 ---
 
-## 📱 Compartilhamento no WhatsApp e Redes Sociais (Open Graph)
+## 📱 Compartilhamento no WhatsApp e Redes Sociais (Link Preview)
 
-A identidade visual e as meta tags para pré-visualização no WhatsApp, LinkedIn, Facebook e Twitter/X foram configuradas no arquivo `index.html`.
+### Como funciona o balão com foto no WhatsApp:
+Quando você cola o link `https://comandos-ia.github.io/chat/` em qualquer conversa do WhatsApp:
+1. O WhatsApp consulta os servidores e lê as tags Open Graph configuradas no `<head>`.
+2. Em 1 a 2 segundos, ele carrega automaticamente:
+   - **Imagem do Card (1200x630):** Mostra os 3 cartões de comandos em destaque (`/decisionbrief`, `/rootcause`, `/strategicplan`), o título e o total de 52 comandos.
+   - **Título:** `Biblioteca de Comandos de Gestão | Comandos IA`
+   - **Descrição:** `52 comandos práticos de IA para pensar, decidir e executar melhor. Exemplos reais, fluxos de decisão e modelos para liderança.`
 
-### O que foi configurado:
-- **Imagem de destaque (Card 1200x630 px):** Arquivo `imagens/og-preview.jpg` gerado e otimizado com estética executiva (fundo escuro navy `#101826`, acentos em ciano `#4fd1e8` e azul `#315be8`, cartões conceituais flutuando e título nítido).
-- **Título:** `Biblioteca de Comandos de Gestão | Comandos IA`
-- **Descrição:** `Comandos práticos de IA para pensar, decidir e executar melhor. Exemplos reais, fluxos de decisão e modelos para liderança.`
-- **Botão na barra superior:** Botão **WhatsApp** que aciona o compartilhamento nativo no celular ou abre o WhatsApp com a mensagem e o link no computador.
-
----
-
-## ⚠️ Dica Importante sobre o WhatsApp:
-O WhatsApp busca a imagem e os textos diretamente do link na internet através de robôs (crawlers).
-1. Quando o site estiver publicado (no GitHub Pages, Vercel, Netlify ou servidor próprio), certifique-se de que o link comece com `https://`.
-2. Se desejar fixar a URL absoluta da imagem no `index.html`, basta trocar `imagens/og-preview.jpg` por `https://seusite.com/imagens/og-preview.jpg`.
-3. Para testar o preview antes de enviar para outras pessoas, você pode colar o link no seu próprio chat ("Mensagens para mim") no WhatsApp ou usar ferramentas como:
-   - [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
-   - [Twitter Card Validator](https://cards-dev.twitter.com/validator)
-   - [OpenGraph.xyz](https://www.opengraph.xyz/)
+> [!IMPORTANT]
+> **Atenção ao colar no WhatsApp:**
+> - Digite ou cole o link completo com HTTPS: `https://comandos-ia.github.io/chat/`
+> - **Aguarde 2 a 3 segundos** antes de apertar "Enviar", para que o WhatsApp tenha tempo de carregar a miniatura e o texto na caixa de mensagem.
+> - Se o seu site estiver hospedado em outro domínio (ex: seu próprio domínio `.com.br`), basta atualizar a URL nas tags `<meta property="og:url">` e `<meta property="og:image">` no arquivo `index.html`.
